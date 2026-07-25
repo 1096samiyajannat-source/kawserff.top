@@ -1,198 +1,203 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KAWSER FF PNL</title>
+    <title>KAWSER FF PNL - Downloads</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
+        /* Base Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: #000000;
+            background-color: #050505;
             color: #ffffff;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
+            min-height: 100vh;
             padding: 20px 10px;
         }
 
-        /* Header Section */
-        header {
-            text-align: center;
-            margin-bottom: 15px;
+        /* Container Card */
+        .container {
             width: 100%;
-            max-width: 500px;
+            max-width: 480px;
+            background: #0d0d0d;
+            border: 2px solid #ffd700;
+            border-radius: 20px;
+            padding: 25px 15px;
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.25);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        header h1 {
-            font-size: 28px;
-            font-weight: bold;
-            color: #ffffff;
-            margin-bottom: 5px;
-        }
-
-        header p.sub-title {
-            font-size: 14px;
-            color: #cccccc;
-            margin-bottom: 15px;
-        }
-
-        header img {
+        /* Profile Avatar with Animation */
+        .avatar-container {
+            position: relative;
             width: 110px;
             height: 110px;
+            margin: 0 auto 15px auto;
+        }
+
+        .avatar {
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
-            border: 3px solid #ff00ff;
-            box-shadow: 0 0 15px #ff00ff;
-            margin-bottom: 15px;
             object-fit: cover;
+            border: 3px solid #ffd700;
+            box-shadow: 0 0 20px #ffd700;
+            animation: pulseGlow 2s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 10px #ffd700; transform: scale(1); }
+            100% { box-shadow: 0 0 25px #ffd700, 0 0 35px #ff0055; transform: scale(1.03); }
+        }
+
+        /* Header Text */
+        h1 {
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: #ffffff;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+        }
+
+        .tiktok-handle {
+            font-size: 14px;
+            color: #aaaaaa;
+            margin-top: 4px;
+            margin-bottom: 12px;
         }
 
         .description {
-            font-size: 13px;
-            color: #e0e0e0;
-            margin-bottom: 15px;
-            line-height: 1.4;
+            font-size: 12px;
+            color: #dddddd;
+            line-height: 1.5;
+            margin-bottom: 18px;
+            padding: 0 10px;
         }
 
-        .heading-yellow {
-            color: #ffd700;
-            font-weight: bold;
+        .section-title {
             font-size: 14px;
-            letter-spacing: 1px;
+            font-weight: bold;
+            color: #ffd700;
+            letter-spacing: 1.5px;
             margin-bottom: 15px;
             text-transform: uppercase;
         }
 
-        /* Telegram & Search Input */
-        .telegram-btn {
-            display: block;
-            width: 100%;
-            max-width: 500px;
-            background: #e60000;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 12px;
-            text-align: center;
-            font-weight: bold;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            font-size: 16px;
+        /* Download Buttons List */
+        .btn-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
 
-        .search-box {
-            width: 100%;
-            max-width: 500px;
-            padding: 12px;
-            border-radius: 8px;
-            border: 1px solid #333;
-            background: #111;
-            color: #fff;
-            font-size: 15px;
-            margin-bottom: 20px;
-            outline: none;
-            text-align: center;
-        }
-
-        /* Download Buttons */
-        .container {
-            width: 100%;
-            max-width: 500px;
-        }
-
-        .btn {
+        /* Styled Download Button */
+        .btn-download {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            text-decoration: none;
-            background: #ffd700;
+            gap: 10px;
+            background: linear-gradient(135deg, #ffd700 0%, #ffae00 100%);
             color: #000000;
-            padding: 14px;
-            margin-bottom: 10px;
-            text-align: center;
-            font-weight: bold;
-            font-size: 14px;
-            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 13px;
+            padding: 13px 15px;
+            border-radius: 10px;
+            border: 1px solid #fff59d;
+            box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             text-transform: uppercase;
-            transition: transform 0.2s, background-color 0.2s;
         }
 
-        .btn:hover {
-            background: #e6c200;
-            transform: scale(1.01);
+        /* Hover Animation */
+        .btn-download:hover {
+            transform: translateY(-3px) scale(1.02);
+            background: linear-gradient(135deg, #ffffff 0%, #ffd700 100%);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.6);
+            color: #000;
         }
 
+        .btn-download:active {
+            transform: translateY(1px);
+        }
+
+        .btn-download i {
+            font-size: 16px;
+        }
+
+        /* Footer */
         footer {
-            margin-top: 30px;
-            padding: 15px;
-            text-align: center;
-            color: #777;
-            font-size: 12px;
+            margin-top: 25px;
+            font-size: 11px;
+            color: #666;
         }
     </style>
 </head>
 <body>
 
-    <header>
+    <div class="container">
+        <!-- Profile Section -->
+        <div class="avatar-container">
+            <!-- আপনার লোগো ফাইলটির নাম logo.png রেখে একই ফোল্ডারে রাখবেন -->
+            <img src="logo.png" alt="Logo" class="avatar">
+        </div>
+
         <h1>KAWSER FF PNL</h1>
-        <p class="sub-title">TikTok: @KAWSER FF PNL</p>
-        
-        <!-- লোগোর ছবি (logo.png ফাইল একই ফোল্ডারে রাখবেন) -->
-        <img src="logo.png" alt="Logo">
-        
-        <p class="description">
-            Hi, I am Kawser. I Provide FF Files, Mobile Panel, Mod Menu, Glitch File Etc. My All Download Links Are Below.
-        </p>
-        
-        <div class="heading-red">MY ALL FILES DOWNLOAD BUTTON</div>
-    </header>
+        <p class="tiktok-handle">TikTok: @KAWSER FF PNL</p>
+        <p class="description">Hi, I am Kawser. I Provide FF Files, Mobile Panel, Mod Menu, Glitch File Etc. My All Download Links Are Below.</p>
 
-    <!-- টেলিগ্রাম চ্যানেল লিংক -->
-    <a class="telegram-btn" href="https://t.me/+y3UjZy7i6tFiY2U9" target="_blank">
-        📢 Join Telegram Channel🙏
-    </a>
+        <div class="section-title">MY ALL FILES DOWNLOAD BUTTON</div>
 
-    <!-- সার্চ বার -->
-    <input type="text" class="search-box" placeholder="Search Files..." onkeyup="searchBtn(this.value)">
+        <!-- Download Buttons -->
+        <div class="btn-list">
+            <!-- MediaFire লিঙ্ক বসাতে href="#" এর জায়গায় আপনার MediaFire লিঙ্কটি বসাবেন -->
+            <a href="#" class="btn-download" target="_blank">
+                <i class="fa-solid fa-download"></i> DOWNLOAD VIP GLORY BOT
+            </a>
+            <a href="#" class="btn-download" target="_blank">
+                <i class="fa-solid fa-download"></i> DOWNLOAD OB54 FAKE LAG
+            </a>
+            <a href="#" class="btn-download" target="_blank">
+                <i class="fa-solid fa-download"></i> DOWNLOAD BEST GAME BOOSTER
+            </a>
+            <a href="#" class="btn-download" target="_blank">
+                <i class="fa-solid fa-download"></i> DOWNLOAD GUILD GLORY BOT
+            </a>
+            <a href="#" class="btn-download" target="_blank">
+                <i class="fa-solid fa-download"></i> DOWNLOAD BRAZILIAN MACRO PANEL
+            </a>
+            <a href="#" class="btn-download" target="_blank">
+                <i class="fa-solid fa-download"></i> DOWNLOAD PERFECT SENSI APP
+            </a>
+            <a href="#" class="btn-download" target="_blank">
+                <i class="fa-solid fa-download"></i> DOWNLOAD OB54 LOCATION PANEL
+            </a>
+            <a href="#" class="btn-download" target="_blank">
+                <i class="fa-solid fa-download"></i> DOWNLOAD HEADSHOT CONFIG
+            </a>
+            <a href="#" class="btn-download" target="_blank">
+                <i class="fa-solid fa-download"></i> DOWNLOAD AIM LOCK
+            </a>
+            <a href="#" class="btn-download" target="_blank">
+                <i class="fa-solid fa-download"></i> DOWNLOAD VIP DRIP CLIENT PANEL
+            </a>
+        </div>
 
-    <!-- ডাউনলোড বাটনসমূহ -->
-    <div class="container" id="buttons">
-        <a class="btn" href="https://www.mediafire.com/file/ad1w8bqq9tubpcb/OB54+PREMIUM+GUILD+BOT.7z/file" target="_blank">📥 DOWNLOAD VIP GLORY BOT</a>
-        <a class="btn" href="https://www.mediafire.com/file/0gm80co8krs7qjo/kawserffpnlfakelagকাওসার.apk/file"target="_blank">📥 DOWNLOAD OB54 FAKE LAG</a>
-        <a class="btn" href="YOUR_LINK_HERE" target="_blank">📥 DOWNLOAD BEST GAME BOOSTER</a>
-        <a class="btn" href="YOUR_LINK_HERE" target="_blank">📥 DOWNLOAD GUILD GLORY BOT</a>
-        <a class="btn" href="YOUR_LINK_HERE" target="_blank">📥 DOWNLOAD BRAZILIAN MACRO PANEL</a>
-        <a class="btn" href="YOUR_LINK_HERE" target="_blank">📥 DOWNLOAD PERFECT SENSI APP</a>
-        <a class="btn" href="YOUR_LINK_HERE" target="_blank">📥 DOWNLOAD OB54 LOCATION PANEL</a>
-        <a class="btn" href="YOUR_LINK_HERE" target="_blank">📥 DOWNLOAD HEADSHOT CONFIG</a>
-        <a class="btn" href="YOUR_LINK_HERE" target="_blank">📥 DOWNLOAD AIM LOCK</a>
-        <a class="btn" href="https://www.mediafire.com/file/k7e5hrjqrbbw4b6/AIM+SETTING+FREE+V3.zip/file" target="_blank">📥 DOWNLOAD VIP DRIP CLIENT PANEL</a>
+        <footer>© 2026 KAWSER FF PNL. All Rights Reserved.</footer>
     </div>
-
-    <footer>
-        © 2026 KAWSER FF PNL. All Rights Reserved.
-    </footer>
-
-    <script>
-        function searchBtn(value) {
-            let input = value.toUpperCase();
-            let btn = document.getElementsByClassName("btn");
-
-            for (let i = 0; i < btn.length; i++) {
-                let txt = btn[i].innerText;
-                if (txt.toUpperCase().indexOf(input) > -1) {
-                    btn[i].style.display = "flex";
-                } else {
-                    btn[i].style.display = "none";
-                }
-            }
-        }
-    </script>
 
 </body>
 </html>
